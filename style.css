@@ -4,6 +4,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: 'font2';
     src: url('fonts/GeneralSansMedium.otf') format('truetype');
@@ -18,7 +19,8 @@
     box-sizing: border-box;
 }
 
-html,body {
+html,
+body {
     width: 100%;
     height: 100%;
 }
@@ -33,32 +35,36 @@ html,body {
     height: 100vh;
     background-color: black;
 }
-#nav{
+
+#nav {
     /* background-color: blue; */
     width: 100%;
     height: 118px;
     /* background-color: rgb(55, 55, 55); */
     padding: 20px 60px;
     color: white;
-    display: flex;  
+    display: flex;
     justify-content: space-between;
     align-items: center;
 
 }
-#nav a{
+
+#nav a {
     color: white;
     text-decoration: none;
     font-family: "font1";
     font-size: 1.09vw;
 }
-#heading{
+
+#heading {
     margin-top: 40px;
     margin-left: 3vw;
     width: fit-content;
     position: relative;
     /* background-color: green; */
 }
-#heading h1{
+
+#heading h1 {
     /* margin-left: 60px; */
     letter-spacing: .15vw;
     font-weight: 900;
@@ -70,22 +76,25 @@ html,body {
     text-transform: uppercase;
     font-weight: 900;
 }
+
 /* #heading #sech1{
     background-color: blue;
 } */
-#blocktext{
+#blocktext {
     position: absolute;
     left: 10vw;
     width: fit-content;
     /* background-color: rgb(81, 12, 199); */
 }
-#blocktext h6{
+
+#blocktext h6 {
     text-align: right;
     font-size: 1vw;
     line-height: 2;
     /* background-color: red; */
 }
-#avail_1{
+
+#avail_1 {
     /* background-color: red; */
     text-align: right;
     text-transform: uppercase;
@@ -95,7 +104,8 @@ html,body {
     font-size: 21px;
     letter-spacing: 0.6px;
 }
-#avail_2{
+
+#avail_2 {
     display: flex;
     justify-content: space-between;
     /* background-color: blue; */
@@ -106,22 +116,25 @@ html,body {
     bottom: 0;
     width: calc(100% - 5.6vw);
 }
-#avail_2 a{
+
+#avail_2 a {
     text-decoration: none;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
     font-size: 20px;
 }
-#avail_2 #iconset{
+
+#avail_2 #iconset {
     display: flex;
     gap: 5px;
     font-size: 1vw;
 }
+
 a i {
-    padding-left: 10px; 
+    padding-left: 10px;
 }
 
-#avail_2 #iconset .circ{
+#avail_2 #iconset .circ {
     width: 35px;
     height: 35px;
     border-radius: 5vw;
@@ -133,7 +146,8 @@ a i {
     font-size: 1.4vw;
     font-weight: 900;
 }
-#second{
+
+#second {
     padding-top: 200px;
     padding-right: 10vw;
     padding-left: 5vw;
@@ -142,7 +156,8 @@ a i {
     min-height: 100vh;
     background-color: rgb(14, 14, 15);
 }
-.ele{
+
+.ele {
     position: relative;
     padding: 3.4vw 3vw;
     padding-right: 0;
@@ -153,53 +168,58 @@ a i {
     justify-content: space-between;
     padding-left: 0;
 }
-.ele h1{
+
+.ele h1 {
     text-transform: uppercase;
     font-size: 6.8vw;
     opacity: .7;
     font-weight: 600;
 }
-.elelast{
+
+.elelast {
     border-bottom: 1px solid #888;
 }
-.ele h6{
+
+.ele h6 {
     font-size: 20px;
 }
-.ele img{
+
+.ele img {
     display: none;
     position: absolute;
     z-index: 999;
     height: 150%;
 }
+
 .btn {
-    background-color: transparent;  
-    color: white;               
-    padding: 10px 20px;         
-    margin: 70px 0;             
-    border-color: white;               
-    border-radius: 50px;        
-    font-size: 20px;     
-    width: 180px;       
-    cursor: pointer;            
-    transition: background-color 0.3s ease; 
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    margin: 70px 0;
+    border-color: white;
+    border-radius: 50px;
+    font-size: 20px;
+    width: 180px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
 .btn:hover {
-    background-color: white; 
+    background-color: white;
     color: black;
 }
 
-.third{
+.third {
     background-color: rgb(0, 0, 0);
     color: white;
     width: 100%;
-    height: 100vh;
     overflow: hidden;
     min-height: 100vh;
 }
 
 .motion_track {
-    margin-top: 200px;      
-    animation: scroll-left 45s linear infinite; 
+    margin-top: 200px;
+    animation: scroll-left 45s linear infinite;
     white-space: nowrap;
     display: flex;
     border-top: 1px solid #888;
@@ -209,7 +229,7 @@ a i {
 }
 
 .motion_track img {
-    width: 200px; 
+    width: 200px;
     height: auto;
     margin-right: 200px;
 }
@@ -218,10 +238,103 @@ a i {
     0% {
         transform: translateX(0);
     }
+
     100% {
-        transform: translateX(-50%); /* Move left by half the container's width */
+        transform: translateX(-50%);
+        /* Move left by half the container's width */
     }
 }
 
+#about {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 90px;
+    padding: 10vw 10vw;
+    padding-left: 40vw;
+}
 
+#about img {
+    width: 300px;
+    height: 300px;
+    /* background-color: purple; */
+}
 
+#text {
+    /* background-color: rgb(167, 75, 200); */
+    width: 50rem;
+    font-size: 1.3vw;
+    margin-top: 90px;
+}
+
+#text h5 {
+    opacity: .6;
+    margin-bottom: 10px;
+}
+
+#text p {
+    line-height: 1.6;
+}
+
+#text a {
+    text-decoration: none;
+    border: 1px solid white;
+    border-radius: 100px;
+    color: white;
+    font-size: 20px;
+    padding: 12px 22px;
+    margin-top: 50px;
+    display: inline-block;
+}
+
+#subscribe {
+    color: white;
+    /* background-color: blue; */
+    padding: 20px 30px;
+    padding-bottom: 9vw;
+}
+
+#subscribe h5 {
+    text-transform: uppercase;
+    opacity: .7;
+}
+
+#subscribe h3 {
+    text-transform: uppercase;
+}
+
+#footer {
+    color: white;
+    height: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 30px;
+    /* background-color: purple; */
+}
+
+#footer_left {
+    display: flex;
+    gap: 30px;
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#footer_ryt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+#footer_ryt a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    padding: 5px 10px;
+}
