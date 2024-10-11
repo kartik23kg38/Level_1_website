@@ -233,6 +233,8 @@ a i {
     position: absolute;
     z-index: 999;
     height: 150%;
+    pointer-events: none;
+    transition: transform 0.2s ease-out;
 }
 
 .btn {
