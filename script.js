@@ -3,78 +3,93 @@ const scroll = new LocomotiveScroll({
     smooth: true
 });
 
-// function firstPageAnim() {
-//     var tl = gsap.timeline();
+function firstPageAnim() {
+    var tl = gsap.timeline();
 
-//     tl.from("#nav", {
-//         y: '-20',
-//         opacity: 0,
-//         duration: 1,
-//         ease: Expo.easeInOut
-//     })
-//         .to(".bounding .boundingele", {
-//             y: '0',
-//             ease: Expo.easeInOut,
-//             duration: 2,
-//             delay: -1,
-//             stagger: 0.1
-//         })
+    tl.from("#nav", {
+        y: '-20',
+        opacity: 0,
+        duration: 1,
+        ease: Expo.easeInOut
+    })
+        .to(".bounding .boundingele", {
+            y: '0',
+            ease: Expo.easeInOut,
+            duration: 2,
+            delay: -1,
+            stagger: 0.1
+        })
 
-//         .to(".boundingele_h6", {
-//             y: 0,
-//             ease: Expo.easeInOut,
-//             duration: 1.5,
-//         }, "-=1.3")
+        .to(".boundingele_h6", {
+            y: 0,
+            ease: Expo.easeInOut,
+            duration: 1.5,
+        }, "-=1.3")
 
-//         .to(".bounding_h4 .avail_1_1", {
-//             y: 0,
-//             ease: Expo.easeInOut,
-//             duration: 1.5,
-//             stagger: {
-//                 each: 0.01,
-//                 from: "end"
-//             },
-//         }, "-=.8")
+        .to(".bounding_h4 .avail_1_1", {
+            y: 0,
+            ease: Expo.easeInOut,
+            duration: 1.5,
+            stagger: {
+                each: 0.01,
+                from: "end"
+            },
+        }, "-=.8")
 
-//         .from("#avail_2", {
-//             y: -10,
-//             opacity: 0,
-//             duration: 1,
-//             ease: Expo.easeInOut
-//         }, "-=1");
-// }
-// firstPageAnim();
+        .from("#avail_2", {
+            y: -10,
+            opacity: 0,
+            duration: 1,
+            ease: Expo.easeInOut
+        }, "-=1");
+}
+firstPageAnim();
 
 const cursor = document.querySelector('#minicircle');
-function mouseFollowerCircle(xscale, yscale, x, y) {
-    cursor.style.transform = `translate(${x}px , ${y}px) scale(${xscale} , ${yscale})`;
-}
-mouseFollowerCircle();
 
+// Function to handle the cursor following with smooth animation
+function mouseFollowerCircle(xscale, yscale, x, y) {
+    gsap.to(cursor, {
+        x: x,
+        y: y,
+        scaleX: xscale,
+        scaleY: yscale,
+        duration: 0.2, 
+        ease: "power3.out" 
+    });
+}
+
+// Function to make the cursor react to fast movements
 function cursorChapta() {
-    var xprev = 0, yprev = 0;
-    var xscale = 1, yscale = 1;
+    let xprev = 0, yprev = 0;
+    let xscale = 1, yscale = 1;
 
     window.addEventListener("mousemove", function (ele) {
-        var x = ele.clientX;
-        var y = ele.clientY;
+        let x = ele.clientX;
+        let y = ele.clientY;
 
-        var xdiff = x - xprev;
-        var ydiff = y - yprev;
+        let xdiff = Math.abs(x - xprev);
+        let ydiff = Math.abs(y - yprev);
         xprev = x;
         yprev = y;
-        xscale = gsap.utils.clamp(0.7, 1.4, xdiff);
-        yscale = gsap.utils.clamp(0.7, 1.4, ydiff);
 
+        // Scale based on the difference in cursor movement, capped between 0.7 and 1.4
+        xscale = gsap.utils.clamp(0.8, 1.4, 1 + xdiff / 200); // Divide by a larger number to smooth out scaling
+        yscale = gsap.utils.clamp(0.8, 1.4, 1 + ydiff / 200);
+
+        // Move the cursor smoothly
         mouseFollowerCircle(xscale, yscale, x, y);
-
-        setTimeout(function () {
-            cursor.style.transform = `translate(${x}px , ${y}px) scale(1, 1)`;  // Use x and y, not xscale/yscale
-        }, 100);
+        
+        // Smoothly reset scale after movement
+        gsap.to(cursor, {
+            scaleX: 1,
+            scaleY: 1, 
+            duration: 0.4, 
+            ease: "power2.out" 
+        });
     });
 }
 cursorChapta();
-
 
 var ele_divs = document.querySelectorAll(".ele");
 var diff_rot = 0;
